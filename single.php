@@ -1,8 +1,3 @@
-<?php
-    include_once 'bi-suche/suche_test.php';
-?>
-<hr>
-
 <!--
  Wordpress Code
  

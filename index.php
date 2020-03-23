@@ -1,10 +1,7 @@
 <?php
-    include_once 'bi-suche/suche_test.php';
+    get_header();
 ?>
-<hr>
 <!--
- Wordpress Code
- 
  the main loop in wordpress
 -->
 <?php
@@ -17,3 +14,5 @@
 <?php
     endwhile;
 ?>
+
+<?php get_footer(); ?>
