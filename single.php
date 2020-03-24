@@ -1,3 +1,6 @@
+<?php
+    get_header();
+?>
 <!--
  Wordpress Code
  
@@ -15,4 +18,8 @@
     <p><?php the_content() ?></p>
 <?php
     endwhile;
+?>
+
+<?php
+    get_footer();
 ?>
