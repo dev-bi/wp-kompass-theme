@@ -22,7 +22,7 @@ Eine vue.js Komponente entwickeln und hier einfügen
     </div>
 
     <script>
-        let biKompassBaseUrl = 'http://localhost/bi-kompass/bi-kompass-x/bi-search/';
+        let biKompassBaseUrl = 'http://developer.lionysos.com/bi-kompass-x/bi-search/';
         document.getElementById('getSearchResult').addEventListener('click', getSearchResult);
 
         function getSearchResult() {
