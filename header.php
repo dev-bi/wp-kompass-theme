@@ -4,8 +4,21 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    <?php include_once 'version/version.php'; ?>
-    <h3>Die BI Datenbank durchsuchen</h3>
-    <?php include_once 'bi-suche/suche_test.php'; ?>
-    <hr>
+    <div id="head">
+            <a href="#">BI - Kompass</a>
+        </div>
+        <div id="nav">
+            <div id="bi-main-menu"><a href="#">Home</a>
+                <a href="#">Über das BI</a>
+                <a href="#">Bereiche</a>
+                <a href="#">Muh</a>
+                <a href="#">Suche</a>
+            </div>
+            <div id="bi-login-logout">
+                <a href="#">Stefan Simon</a>
+                <a href="#">Logout</a>
+            </div>
+            
+        </div>
+        <?php include_once 'version/version.php'; ?>
     
