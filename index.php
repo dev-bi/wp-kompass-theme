@@ -18,13 +18,20 @@
                 -->
             </div>
         </div>
-        <!-- Suchleiste-->
+
+        <?php include_once 'bi-suche/suche_test.php'; ?>
+
+        <!-- Suchleiste in bi-suche/suche_test.php -->
+
+        <!--
         <div id="search-wrapper" class="container">
             <div id="search-bar">
                 <label>BI - Suche</label>
                 <input type="text" name="sstring" placeholder="Suchbegriff eingeben...">
             </div>
         </div>
+        -->
+        
         <!-- Inhalt-->
         <div id="content-wrapper" class="container">
             <!--

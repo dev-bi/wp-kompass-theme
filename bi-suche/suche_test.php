@@ -13,17 +13,25 @@
 Eine vue.js Komponente entwickeln und hier einfügen
 -->
 <div id="bi-kompass-suche">
-    <div>
-        <input type="text" id="sstring" name="sstring">
-        <button id="getSearchResult">Suche</button>
-        <p id="res">
-
-        </p>
-    </div>
+    <!-- Suchleiste-->
+    <div id="search-wrapper" class="container">
+            <div id="search-bar">
+                <label>BI - Suche</label>
+                <input type="text" id="sstring" name="sstring" placeholder="Suchbegriff eingeben...">
+            </div>
+            <div id="res"></div>
+        </div>
 
     <script>
         let biKompassBaseUrl = 'http://localhost/bi-kompass/bi-kompass-x/bi-search/';
-        document.getElementById('getSearchResult').addEventListener('click', getSearchResult);
+        let inputSearch = document.getElementById('sstring');
+
+        inputSearch.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                getSearchResult();
+            }
+        })
 
         function getSearchResult() {
             let requestName = document.getElementById('sstring').name;
