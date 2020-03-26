@@ -167,7 +167,7 @@ input[type=text]:focus {
     background-color: #154360;
     color: white;
     width: 100%;
-    padding: 25px;
+    padding: 25px 0;
 }
 
 #footer a {
