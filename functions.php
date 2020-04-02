@@ -9,7 +9,8 @@
 */
 
 function bi_kompass_files(){
-    wp_enqueue_style('bi_main_styles', get_stylesheet_uri());
+  wp_enqueue_style('sbar_sytle', '//localhost/bi-kompass/bi-kompass-component-service/search-component/view/css');
+  wp_enqueue_style('bi_main_styles', get_stylesheet_uri());
 }
 
 add_action('wp_enqueue_scripts', 'bi_kompass_files');

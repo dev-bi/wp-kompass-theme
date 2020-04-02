@@ -19,7 +19,20 @@
             </div>
         </div>
 
-        <?php include_once 'bi-suche/suche_test.php'; ?>
+        <?php //include_once 'bi-suche/suche_test.php'; ?>
+
+        <!--    
+            Suchleiste aus Component Service holen und anzeigen 
+            css datei wird in der functions.php geladen
+        -->
+        <?php //echo file_get_contents('http://localhost/bi-kompass/bi-kompass-component-service/search-component/view/show'); ?>
+        
+        <?php echo wp_remote_retrieve_body(
+            wp_remote_get(
+                'http://localhost/bi-kompass/bi-kompass-component-service/search-component/view/show'
+            ));
+        ?>
+
 
         <!-- Suchleiste in bi-suche/suche_test.php -->
 

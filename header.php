@@ -8,7 +8,10 @@
             <a href="#">BI - Kompass</a>
         </div>
         <div id="nav">
-            <div id="bi-main-menu"><a href="#">Home</a>
+             
+            <div id="bi-main-menu">
+            <a href="#" style="width:auto;color:#ff9800">Entwickler-Bereich</a>
+            <a href="#">Home</a>
                 <a href="#">Über das BI</a>
                 <a href="#">Bereiche</a>
                 <a href="#">Muh</a>
