@@ -65,7 +65,7 @@
 
         searchInput.addEventListener('keyup', function(event) {
             if (searchInput.value != '') {
-                fetch(baseUrl + 'bi-kompass-component-service/find?sstring=' + searchInput.value)
+                fetch(baseUrl + 'bi-kompass-component-service/search-component/find?sstring=' + searchInput.value)
                 .then((response) => response.json())
                 .then((data) => {
                     suggestionList.innerHTML = "";
@@ -85,15 +85,19 @@
             console.log(searchInput.value);
             
             if (event.keyCode === 13) {
-                emptyRespondFields();
-                console.log("suche gestartet");
-                event.preventDefault();
-                getResult();
+                
+                if(searchInput.value != '') {
+                    emptyRespondFields();
+                    console.log("suche gestartet");
+                    event.preventDefault();
+                    getResult();
+                }
+                    
             }
         });
 
         function getResult() {
-            fetch(baseUrl + 'bi-kompass-component-service/find?sstring=' + searchInput.value)
+            fetch(baseUrl + 'bi-kompass-component-service/search-component/find?sstring=' + searchInput.value)
             .then((response) => response.json())
             .then((data) => {
                 resultObject.result = data;
