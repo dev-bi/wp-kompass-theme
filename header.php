@@ -23,5 +23,4 @@
             </div>
             
         </div>
-        <?php include_once 'version/version.php'; ?>
     
