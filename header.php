@@ -10,7 +10,7 @@
         <div id="nav">
              
             <div id="bi-main-menu">
-            <a href="#" style="width:auto;color:#ff9800">Entwickler-Bereich</a>
+            <a href="entwickler-bereich" style="width:auto;color:#ff9800">Entwickler-Bereich</a>
             <a href="#">Home</a>
                 <a href="#">Über das BI</a>
                 <a href="#">Bereiche</a>

@@ -24,6 +24,7 @@
         -->
         
         <!-- Inhalt-->
+        <?php include_once 'version/version.php'; ?>
         <div class="container-flex">
         <div id="dev-page-links">
             <h2>Hauptartikel</h2>
@@ -38,7 +39,7 @@
         </div>
 
         <div class="content-container">
-             <?php include_once 'version/version.php'; ?>
+             <?php //include_once 'version/version.php'; ?>
             <!--
             the main loop in wordpress
             -->
