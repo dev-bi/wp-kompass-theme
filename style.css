@@ -1,100 +1,175 @@
 /*
  * Theme Name: BI - Kompass Theme
- * Author: Stefan Simon
- * Version: 0.2 
+ * Author: Intranet-Projekt (BI)
+ * Version: 0.8
  * 
  */
 
 html {
     background-color: #154360;
 }
-
-
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family:'Poppins', sans-serif;
     background-color: white;
 }
 
-
-#head {
+/* Header mit Titel und Logo */
+.header {
+    padding: 50px 0;
     background-color: #154360;
-    height: 100px;
+    padding-bottom: 20px;
 }
 
-#head a {
-    color: white;
-    text-decoration: none;
-    font-size: 200%;
-    font-weight: bold;
-    padding-top: 50px;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-/* Hauptmenü */
-
-#bi-main-menu {
-    display: block;
-    float:left;
-    width: 60%;
-    height: 20px;
-    background-color: #1F618D;
-}
-
-#bi-main-menu a {
-    width: 15%;
-    height: 100%;
-    display: block;
-    float: left;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-}
-
-#bi-main-menu a:hover {
-    background-color: #2980B9;
-}
-
-/* Menü für geschützten Bereich */
-
-#bi-login-logout {
-    display: block;
-    float: right;
-    width: 40%;
-    height: 20px;
-    background-color: #1F618D;
-}
-
-#bi-login-logout a{
-    width: 20%;
-    height: 100%;
-    float: left;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-}
-
-#bi-login-logout a:hover {
-    background-color: #2980B9;
-}
-
-
-/* Containerklassen */
-
-.container {
-    width: 100%;
-}
-
-/* Suchleiste */
-
-
-/* ************************ */
-/*      NEUES LAYOUT        */
-/*      ************        */
-ul {
+/* Style für BI Schriftzug/Logo. H1 Element*/
+.bi-header {
+    margin: 0;
     padding: 0;
+    padding-left: 2%;
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
+
+.bi-header a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navigationsleiste */
+.nav {
+    background-color: #1F618D;
+    display: flex;
+
+}
+
+/* Das gesamte obere Menü, dass den Inhalt der Navigation bildet */
+/* Navigationsmenü sowie Login-Logout Menü sind beide von der Klasse .bi-main-menu */
+.bi-main-menu {
+    /*height: 50px;*/
+}
+
+.bi-main-menu ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    height: 60px;
+}
+
+.bi-main-menu li {
+    display: block;
+    list-style: none;
+    width: 15%;
+    padding: 15px 0;
+    /*height: 50px;*/
+}
+
+.bi-main-menu li:hover {
+    background-color: #5499C7;
+}
+
+.bi-main-menu a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navigatonsmenü. Links zu den verschiedenen Bereichen und Inhalten */
+.menu-nav {
+    width: 60%;
+    background-color: #1F618D;
+}
+
+.menu-nav li {
+
+}
+
+/* Geschützter Bereich. Login oder: Logout und andere Menüpunkte aus geschütztem Bereich*/
+.menu-login-logout {
+    width: 40%;
+    background-color: #1F618D;
+
+}
+
+.menu-login-logout li {
+    width: 20%;
+}
+
+/* Display none! */
+.burger {
+    cursor: pointer;
+    display: none;
+    padding: 20px 20px;
+    background-color: #1F618D;
+}
+
+.burger div {
+    margin: 5px;
+    height: 3px;
+    width: 25px;
+    background-color: white;
+}
+
+@media screen and (max-width: 1024px) {
+   .menu-nav {
+       font-size: small;
+   }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    .nav {
+        min-height: 60px; 
+    }
+
+    .menu-nav {
+        position: absolute;
+        margin-top: 60px;
+        width: 50%;
+        transform: translateX(-100%);
+    }
+
+    .menu-nav-active {
+        transform: translateX(0%);
+    }
+
+    .menu-nav ul {
+        display: flex;
+        height: 75vh;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .bi-main-menu li {
+        width: 40%;
+        padding: 20px 0;
+    }
+
+    .menu-login-logout {
+        width: 70%;
+        font-size: small;
+        position: absolute;
+        right: 0px;
+    }
+
+    .burger {
+        display: block;
+    }    
+
+    .bi-kompass-component {
+        display: none;
+    }
+}
+
+
+/*********************
+ * page.php Elements *
+ * ***************** */
 code {
     background-color: lightblue;
     padding: 8px;
@@ -103,20 +178,33 @@ code {
     display: inline-block;
 }
 
-#nav {
-    margin-bottom: 5%;
-}
-
 .bi-menu {
-    font-family: 'Montserrat', sans-serif; /* 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
     list-style-type: none;
     padding-right: 15px;
 }
+
+
 
 .bi-menu a {
     text-decoration: none;
     color: #3c3ab9;
 }
+
+/* 
+*   .bi-articles müssen unter .bi-menu stehen, 
+*     da höhere Priorität beim Design
+*/
+
+.bi-articles {
+
+}
+
+.bi-articles a:hover {
+    text-decoration: underline;
+}
+
 
 /* NOTE: #bi-main-menu a, .current-link -> added in style.css! */
 
@@ -129,7 +217,7 @@ code {
 }
 
 .container-flex {
-    width: 1170px;
+    width: 75%;
     margin: 0 auto;
     display: flex;
     background-color: white;
@@ -137,10 +225,6 @@ code {
 
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
-}
-
-li, a {
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .content-container {
@@ -152,6 +236,7 @@ li, a {
     background-color: #dde2ff;
     border-radius: 10px;
     margin: 0 25px;
+    margin-bottom: 5%;
 }
 
 .content-container h1 {
@@ -204,17 +289,6 @@ li, a {
     text-align: center;
 }
 
-/* ************************ */
-/* ************************ */
-
-
-/* Inhalte, die über Wordpress-Loop laufen */
-
-#content-wrapper {
-    width: 50%;
-    min-height: 300px;
-}
-
 /* Footer */
 #footer {
     background-color: #154360;
@@ -230,3 +304,45 @@ li, a {
     padding-left: 50px;
 }
 
+
+@media screen and (max-width: 1200px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-flex {
+        margin: 0;
+        width: auto;
+    }
+
+    .content-container {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content-container {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    #dev-page-links {
+    }
+    #bi-app-container {
+        display:none;
+    }
+
+    .container-flex{
+        flex-direction: column;
+        width: auto;
+    }
+
+}

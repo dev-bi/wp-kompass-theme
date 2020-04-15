@@ -47,7 +47,7 @@
             <h2>Suchleiste (Test)</h2>
             <?php echo wp_remote_retrieve_body(
             wp_remote_get(
-                'http://localhost/bi-kompass/bi-kompass-component-service/search-component/view/show'
+                'http://developer.lionysos.com/bi-kompass-component-service/search-component/view/show'
             ));
         ?>
 

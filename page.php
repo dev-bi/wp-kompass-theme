@@ -4,11 +4,12 @@
 
 <div class="container-flex">
         <div id="dev-page-links">
-            <h2>Entwickler-Bereich</h2>
-            <ul class="bi-menu">
-                <li><a href="#">Vorbereitung</a></li>
-                <li><a href="#">GitHub Workflow</a></li>
-                <li><a href="#">Aufgaben</a></li>
+            <h2>PAGE-NAME: REPLACE LATER</h2>
+            <ul class="bi-menu bi-articles">
+                <li><a href="entwickler-bereich">GitHub Workflow</a></li>
+                <li><a href="bi-kompass-todo-liste">Aufgaben (mit Anleitung)</a></li>
+                <li><a href="bikcs-was-ist-das">BIKCS – Was ist das?</a></li>
+                <li><a href="die-daten">Über die Datenbank</a></li>
             </ul>
         </div>
 

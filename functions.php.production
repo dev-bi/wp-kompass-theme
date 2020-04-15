@@ -3,18 +3,13 @@
  * here we communicate with wordpress behind the scenes.
 */
 
-/*
-* Environment Setting
-*/
-$baseUrlDev = "http://localhost/bi-kompass";
-$baseUrlProduction = "http://developer.lionysos.com";
-
-/*
-* Environment Setting End
+/**
+  * example:
+  * add_action(wp_hook, name_of_my_function);
 */
 
 function bi_kompass_files(){
-  wp_enqueue_style('sbar_sytle', 'http://localhost/bi-kompass' . '/bi-kompass-component-service/search-component/view/css');
+  wp_enqueue_style('sbar_sytle', '//developer.lionysos.com/bi-kompass-component-service/search-component/view/css');
   wp_enqueue_style('bi_main_styles', get_stylesheet_uri());
 }
 
