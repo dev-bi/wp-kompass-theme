@@ -12,7 +12,7 @@
 
     <!-- Logo, Schriftzug und Burgermenü -->
     <div id="head" class="header">
-        <h2 class="bi-header"><a href="localhost/bi-kompass/wp_bi-kompass">BI - Kompass</a></h1>
+        <h2 class="bi-header"><a href="<?php echo site_url('/'); ?>">BI - Kompass</a></h1>
     </div>
     <div id="nav" class="nav">
 
@@ -24,7 +24,7 @@
         <!-- Bereiche -->
         <div id="bi-main-menu" class="bi-main-menu menu-nav">
             <ul>
-                <li><a href="entwickler-bereich" style="color:#fb8c84">Dev-Bereich</a></li>
+                <li><a href="<?php echo site_url('/entwickler-bereich');?>" style="color:#fb8c84">Dev-Bereich</a></li>
                 <li><a href="#">Primo</a></li>
                 <li><a href="#">Reha</a></li>
                 <li><a href="#">Vario</a></li>

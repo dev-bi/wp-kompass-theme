@@ -13,7 +13,7 @@ $baseUrlProduction = "http://developer.lionysos.com";
 * Environment Setting End
 */
 
-function bi_kompass_files(){
+function bi_kompass_files (){
   wp_enqueue_style('sbar_sytle', 'http://localhost/bi-kompass' . '/bi-kompass-component-service/search-component/view/css');
   wp_enqueue_style('bi_main_styles', get_stylesheet_uri());
 }
@@ -27,3 +27,9 @@ function load_google_fonts () {
 
 add_action('wp_enqueue_scripts', 'bi_kompass_files');
 add_action('wp_print_styles', 'load_google_fonts');
+
+function bi_kompass_features () {
+  add_theme_support('title-tag');
+}
+
+add_action('after_setup_theme', 'bi_kompass_features');
