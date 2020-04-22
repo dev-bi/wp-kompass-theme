@@ -45,10 +45,21 @@
             -->
             <div class="bi-kompass-content-container">
             <h2>Suchleiste (Test)</h2>
-            <?php echo wp_remote_retrieve_body(
-            wp_remote_get(
-                'http://localhost/bi-kompass/bi-kompass-component-service/search-component/view/show'
-            ));
+            <?php 
+            /*
+            * environment
+            * diesen Code auslagern in eine config oder env Datei
+            */ 
+            $component_base_url_dev = 'http://localhost/bi-kompass/bi-kompass-component-service/';
+            $component_base_url_prod = 'http://developer.lionysos.com/bi-kompass-component-service/';
+
+            /*
+            * retrieve BIK component
+            */
+            echo wp_remote_retrieve_body(
+                wp_remote_get(
+                    $component_base_url_dev . 'search-component/view/show'
+                ));
         ?>
 
             <hr>

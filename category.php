@@ -4,22 +4,31 @@
 
 <div class="container-flex">
         <div id="dev-page-links">
-            <h2>Inhalt</h2>
-            <!-- dispaly header-->
-            <?php echo bik_page_display_contents_header($post); ?>
-
+        <h2>Inhalt</h2>
+            <h3><?php single_cat_title(); ?></h3>
             <ul class="bi-menu bi-articles">
-            <!-- display child pages (contenttable) -->
-            <?php echo bik_list_child_pages($post); ?>
-            
+            <?php
+                    /*
+                    * Environment
+                    */
+                    $category_dev = 3;
+                    $category_prod = 999;
+
+                    /* use WP_Query(args) */
+                    $posts = get_posts(['category' => $category_dev]);
+                    foreach($posts as $post) :
+                    ?>
+                    <li><a href="<?php echo site_url('/' . $post->post_name) ?>"><?php echo $post->post_title; ?></a></li>
+                    <?php 
+                    endforeach;
+                ?>
             </ul>
         </div>
 
         <div class="content-container">
         <?php
-        $page_id = get_queried_object_id();
-            $query = new WP_Query(['page_id' => $page_id]);
-            while($query->have_posts()) : $query->the_post();
+            while(have_posts()) :
+                the_post();
                 ?>
 
             <h2><?php the_title(); ?></h2>
@@ -39,7 +48,7 @@
         </div>
     
         
-</div> <!-- container-flex -->
+    </div>
 
 
 
