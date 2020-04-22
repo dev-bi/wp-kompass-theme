@@ -5,24 +5,13 @@
 <div class="container-flex">
         <div id="dev-page-links">
             <h2>Inhalt</h2>
-            <h3><?php echo get_the_title(); ?></h3>
-            <ul class="bi-menu bi-articles">
-            <?php
-                    /*
-                    * Environment
-                    */
-                    $category_dev = 3;
-                    $category_prod = 999;
+            <!-- dispaly header-->
+            <?php echo bik_page_display_contents_header($post); ?>
 
-                    $posts = get_posts(['category' => $category_dev]);
-                    foreach($posts as $post) :
-                    ?>
-                    <li><a href="<?php echo site_url('/' . $post->post_name) ?>"><?php echo $post->post_title; ?></a></li>
-                    <?php 
-                    endforeach;
-                    wp_reset_query();
-                    wp_reset_postdata();
-                ?>
+            <ul class="bi-menu bi-articles">
+            <!-- display child pages (contenttable) -->
+            <?php echo bik_list_child_pages($post); ?>
+            
             </ul>
         </div>
 

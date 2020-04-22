@@ -33,3 +33,43 @@ function bi_kompass_features () {
 }
 
 add_action('after_setup_theme', 'bi_kompass_features');
+
+function test() {
+  return "some test muh";
+}
+
+function bik_page_display_contents_header($post) {
+  $string ="";
+  if( is_page() && $post->post_parent ) {
+    $string = get_the_title($post->post_parent);
+  } else {
+    $string = get_the_title();
+  }
+  $resultString = "<h3>$string</h3>";
+  return $resultString;
+}
+
+function bik_list_child_pages($post) {
+
+  $args = [
+    'title_li' => '',
+    'echo' => 0,
+    'sort_column' => 'menu_order',
+  ];
+
+  if ( is_page() && $post->post_parent ) {
+    $args['child_of'] = $post->post_parent;
+    $childPages = wp_list_pages($args);
+  }
+  else {
+    $args['child_of'] = $post->ID;
+    $childPages = wp_list_pages($args);
+  }
+
+  if ( $childPages ) {
+   
+      $string = $childPages;
+  }
+   
+  return $string;
+}

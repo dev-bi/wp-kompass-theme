@@ -25,10 +25,10 @@
         <div id="bi-main-menu" class="bi-main-menu menu-nav">
             <ul>
                 <li><a href="<?php echo site_url('/entwickler-bereich');?>" style="color:#fb8c84">Dev-Bereich</a></li>
-                <li><a href="#">Primo</a></li>
-                <li><a href="#">Reha</a></li>
-                <li><a href="#">Vario</a></li>
-                <li><a href="#">Fachbereiche</a></li>
+                <li><a href="<?php echo site_url('/bi-primo'); ?>">Primo</a></li>
+                <li><a href="<?php echo site_url('/bi-reha'); ?>">Reha</a></li>
+                <li><a href="<?php echo site_url('/bi-vario'); ?>">Vario</a></li>
+                <li><a href="<?php echo site_url('/bi-fachbereiche'); ?>">Fachbereiche</a></li>
                 <li><a href="#">Suche</a></li>
             </ul>   
         </div>
