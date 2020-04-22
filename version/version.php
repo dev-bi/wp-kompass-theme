@@ -1,7 +1,7 @@
 <?php
 /**
  * File Doc Content
- * 
+ *
  * @author Stefan Simon <stefan.simon@lionysos.com>
  *
  */
