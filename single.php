@@ -1,19 +1,29 @@
 <?php
+/**
+ * Hier wird ein Artikel angezeigt, nachdem er angeklickt wurde.
+ * siehe: https://developer.wordpress.org/themes/basics/template-files/
+ */
     get_header();
 ?>
 
 <div class="container-flex">
         <div id="dev-page-links">
             <h2>Inhalt</h2>
-            <?php 
-                $pageTitle = get_the_title();
-                $parentPageTitle = get_the_title($post->post_parent);
-                if ($pageTitle != $parentPageTitle) :
+            <?php
+            /*
+                TODO:
+                Alles alt. Dieser ganze Code muss angepasst werden, siehe page.php
+            */
+            $pageTitle = get_the_title();
+            $parentPageTitle = get_the_title($post->post_parent);
+            
+            if ($pageTitle != $parentPageTitle) :
                 ?>
                     <h3><?php echo $parentPageTitle; ?></h3>
                 <?php
-                endif;
-                ?>
+            endif;
+            ?>
+
             <h4><?php echo $pageTitle; ?></h4>
             <ul class="bi-menu bi-articles">
             <?php

@@ -6,20 +6,6 @@
  * Funktionen werden hierhin ausgelagert, damit die Templatefiles übersichtlich bleiben und nicht voller PHP-Code sind.
 */
 
-/*
-    Environment Setting
-    damit das Deployen leichter geht, werden hier die urls für lokales Arbeiten und für den Server gesetzt
-*/
-
-function getDevEnvironment() {
-    return "http://localhost/bi-kompass";
-}
-
-function getProdEnvironment() {
-    return "http://developer.lionysos.com";
-}
-
-
 /**
  * bi_kompass_files
  *
@@ -30,13 +16,14 @@ function getProdEnvironment() {
 function bi_kompass_files() {
     /* set environment */
     /* for local development */
-    $env = getDevEnvironment();
+    $env = "http://localhost/bi-kompass/";
+    //$env = "http://developer.lionysos.com/";
 
     /* for server */
     //$env = getProdEnvironment;
 
     /* get stylesheet from bikcs: search-component */
-    wp_enqueue_style('sbar_sytle', $env . '/bi-kompass-component-service/search-component/view/css');
+    wp_enqueue_style('sbar_sytle', $env . 'bi-kompass-component-service/search-component/view/css');
     /* set the main stylesheet */
     wp_enqueue_style('bi_main_styles', get_stylesheet_uri());
 }
