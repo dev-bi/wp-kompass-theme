@@ -45,8 +45,6 @@
         
 </div> <!-- container-flex -->
 
-
-
 <?php 
-    get_footer(); 
+    get_footer();
 ?>
