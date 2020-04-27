@@ -1,28 +1,6 @@
 <?php
     get_header();
-?>
-
-        <?php //include_once 'bi-suche/suche_test.php'; ?>
-
-        <!--    
-            Suchleiste aus Component Service holen und anzeigen 
-            css datei wird in der functions.php geladen
-        -->
-        <?php //echo file_get_contents('http://localhost/bi-kompass/bi-kompass-component-service/search-component/view/show'); ?>
-        
-        
-
-        <!-- Suchleiste in bi-suche/suche_test.php -->
-
-        <!--
-        <div id="search-wrapper" class="container">
-            <div id="search-bar">
-                <label>BI - Suche</label>
-                <input type="text" name="sstring" placeholder="Suchbegriff eingeben...">
-            </div>
-        </div>
-        -->
-        
+?>      
         <!-- Inhalt-->
         <?php include_once 'version/version.php'; ?>
         <div class="container-flex">
@@ -47,18 +25,23 @@
             <h2>Suchleiste (Test)</h2>
             <?php 
             /*
-            * environment
-            * diesen Code auslagern in eine config oder env Datei
-            */ 
-            $component_base_url_dev = 'http://localhost/bi-kompass/bi-kompass-component-service/';
-            $component_base_url_prod = 'http://developer.lionysos.com/bi-kompass-component-service/';
+                Environment
+            */
+            $env = "http://developer.lionysos.com/";
+            //$env = "http://developer.lionysos.com/";
 
             /*
-            * retrieve BIK component
+                Komponentenpfad 
+            */
+            $componentBaseUrl = $env . 'bi-kompass-component-service/';
+
+            /*
+                Search-Component per API ins WP Template einbinden
+                besser: per JS
             */
             echo wp_remote_retrieve_body(
                 wp_remote_get(
-                    $component_base_url_prod . 'search-component/view/show'
+                    $componentBaseUrl . 'search-component/view/show'
                 ));
         ?>
 

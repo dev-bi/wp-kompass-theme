@@ -8,34 +8,28 @@
             <h3><?php single_cat_title(); ?></h3>
             <ul class="bi-menu bi-articles">
             <?php
-                    /*
-                    * Environment
-                    */
-                    $category_dev = 3;
-                    $category_prod = 999;
-
-                    /* use WP_Query(args) */
-                    $posts = get_posts(['category' => $category_dev]);
-                    foreach($posts as $post) :
-                    ?>
-                    <li><a href="<?php echo site_url('/' . $post->post_name) ?>"><?php echo $post->post_title; ?></a></li>
-                    <?php 
-                    endforeach;
+            //Zeigt alle Überschriften der Artikel aus Kategorie 3 als Links an (3 = dev-bereich)
+            $category = 3;
+            $posts = get_posts(['category' => $category]);
+            foreach ($posts as $post) :
                 ?>
+                <li><a href="<?php echo site_url('/' . $post->post_name) ?>"><?php echo $post->post_title; ?></a></li>
+                <?php
+            endforeach;
+            ?>
             </ul>
         </div>
 
         <div class="content-container">
         <?php
-            while(have_posts()) :
-                the_post();
-                ?>
-
-            <h2><?php the_title(); ?></h2>
-                <p><?php the_content(); ?></p>
-                <?php
-            endwhile;
+        while (have_posts()) :
+            the_post();
             ?>
+            <h2><?php the_title(); ?></h2>
+            <p><?php the_content(); ?></p>
+            <?php
+        endwhile;
+        ?>
         </div>
 
         <div id="bi-app-container">
@@ -50,8 +44,6 @@
         
     </div>
 
-
-
-<?php 
-    get_footer(); 
+<?php
+    get_footer();
 ?>
