@@ -3,11 +3,11 @@
 ?>      
 <?php include_once 'version/version.php'; ?>
     
+<!-- CONTENT -->
 <div class="container-flex">
-    <div id="dev-page-links">
+    <div class="container-flex__page-menu">
         <h2>Hauptartikel</h2>
-        
-        <ul class="bi-menu bi-articles">
+        <ul class="items page-menu-items">
             <li><a href="#">Bericht über Corona</a></li>
             <li><a href="#">Tragisches Ende einer Ära</a></li>
             <li><a href="#">Neues aus der IT</a></li>
@@ -16,7 +16,7 @@
         </ul>
     </div>
 
-    <div class="content-container">
+    <div class="container-flex__content">
         <div class="bi-kompass-content-container">
         <h2>Suchleiste (Test)</h2>
         <?php
@@ -58,13 +58,13 @@
         ?>          
     </div> <!-- content-container -->
 
-    <div id="bi-app-container">
-        <h3>Pfadfinder</h3>
-        <ul class="bi-menu">
-            <li><a href="#">Suche</a></li>
-            <li><a href="#">Interaktiver Raumplan</a></li>
-            <li><a href="#">IaK Finder</a></li>
-        </ul>
+    <div class="bi-app-container">
+            <h3>Pfadfinder</h3>
+            <ul class="items bi-app-container__items">
+                <li><a href="#">Suche</a></li>
+                <li><a href="#">Interaktiver Raumplan</a></li>
+                <li><a href="#">IaK Finder</a></li>
+            </ul>
     </div>    
 </div> <!-- container-flex -->
 
