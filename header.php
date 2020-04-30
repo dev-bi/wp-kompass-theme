@@ -6,23 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!----------------->
-    <!--   HEADER    -->
-    <!----------------->
+       <!-- HEADER -->
 
     <!-- Logo, Schriftzug und Burgermenü -->
-    <div id="head" class="header">
-        <h2 class="bi-header"><a href="<?php echo site_url('/'); ?>">BI - Kompass</a></h1>
+    <div class="header">
+        <h2 class="header__title"><a href="<?php echo site_url('/'); ?>">BI - Kompass</a></h1>
     </div>
+    
     <div id="nav" class="nav">
-
-        <div id="js-burger" class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div id="js-burger" class="nav__burger-menu">
+            <div class="burger-menu__line"></div>
+            <div class="burger-menu__line"></div>
+            <div class="burger-menu__line"></div>
         </div>
         <!-- Bereiche -->
-        <div id="bi-main-menu" class="bi-main-menu menu-nav">
+        <div id="js-area-menu" class="menu area-menu">
             <ul>
                 <li><a href="<?php echo site_url('/entwickler-bereich');?>" style="color:#fb8c84">Dev-Bereich</a></li>
                 <li><a href="<?php echo site_url('/bi-primo'); ?>">Primo</a></li>
@@ -33,10 +31,10 @@
             </ul>   
         </div>
         <!-- Menü für geschützten Bereich -->
-        <div id="bi-login-logout" class="bi-main-menu menu-login-logout">
+        <div class="menu protected-area-menu">
             <ul>
-                <li><a href="#">Stefan Simon</a></li>
-                <li><a href="#">Logout</a></li>
+                <!-- <li><a href="#">Stefan Simon</a></li> -->
+                <li><a href="#">Login</a></li>
             </ul>
         </div>
         
@@ -49,13 +47,10 @@
         * Klappt Menü ein und aus, wenn man das Burgersymbol klickt/berührt
         */
         const burger = document.getElementById('js-burger');
-        const burgerNav = document.getElementById('bi-main-menu');
+        const burgerNav = document.getElementById('js-area-menu');
 
         burger.addEventListener('click', function() {
-            burgerNav.classList.toggle('menu-nav-active'); 
+            burgerNav.classList.toggle('is-active'); 
         }); 
 
     </script>
-    <!----------------->
-    <!-- HEADER ENDE -->
-    <!----------------->

@@ -1,81 +1,71 @@
 <?php
     get_header();
 ?>      
-        <!-- Inhalt-->
-        <?php include_once 'version/version.php'; ?>
-        <div class="container-flex">
-        <div id="dev-page-links">
-            <h2>Hauptartikel</h2>
-            
-            <ul class="bi-menu bi-articles">
-                <li><a href="#">Bericht über Corona</a></li>
-                <li><a href="#">Tragisches Ende einer Ära</a></li>
-                <li><a href="#">Neues aus der IT</a></li>
-                <li><a href="#">Das Meerschwein quieckt lauter als gedacht</a></li>
-                <li><a href="#">Ein neuer Bericht</a></li>
-            </ul>
-        </div>
+<?php include_once 'version/version.php'; ?>
+    
+<!-- CONTENT -->
+<div class="container-flex">
+    <div class="container-flex__page-menu">
+        <h2>Hauptartikel</h2>
+        <ul class="items page-menu-items">
+            <li><a href="#">Bericht über Corona</a></li>
+            <li><a href="#">Tragisches Ende einer Ära</a></li>
+            <li><a href="#">Neues aus der IT</a></li>
+            <li><a href="#">Das Meerschwein quieckt lauter als gedacht</a></li>
+            <li><a href="#">Ein neuer Bericht</a></li>
+        </ul>
+    </div>
 
-        <div class="content-container">
-             <?php //include_once 'version/version.php'; ?>
-            <!--
-            the main loop in wordpress
-            -->
-            <div class="bi-kompass-content-container">
-            <h2>Suchleiste (Test)</h2>
-            <?php 
-            /*
-                Environment
-            */
-            $env = "http://developer.lionysos.com/";
-            //$env = "http://developer.lionysos.com/";
+    <div class="container-flex__content">
+        <div class="bi-kompass-content-container">
+        <h2>Suchleiste (Test)</h2>
+        <?php
+        /*
+            Suchkomponente
+        */
+        $env = "http://developer.lionysos.com/";
 
-            /*
-                Komponentenpfad 
-            */
-            $componentBaseUrl = $env . 'bi-kompass-component-service/';
+        $componentBaseUrl = $env . 'bi-kompass-component-service/';
 
-            /*
-                Search-Component per API ins WP Template einbinden
-                besser: per JS
-            */
-            echo wp_remote_retrieve_body(
-                wp_remote_get(
-                    $componentBaseUrl . 'search-component/view/show'
-                ));
+        /*
+            Einbinden geht auch über file_get_contents(), habe mich für die WP Variante entschieden
+            Hier fehlt ein Token, der BIKCS mitteilt,
+            dass die BI-WP Seite einen Request schickt und nicht irgendeine andere.
+        */
+        echo wp_remote_retrieve_body(
+            wp_remote_get(
+                $componentBaseUrl . 'search-component/view/show'
+        ));
         ?>
 
-            <hr>
-            </div>
-            
+        <hr>
 
-            <?php
-                while (have_posts()) :
-                    the_post();
-                ?>
+        </div> <!-- bi-kompass-content-container -->
+        
+        <?php
+        while (have_posts()) :
+            the_post();
+            ?>
             <div class="bi-kompass-content-container">
                 <h2><?php the_title(); ?></h2>
                 <p>
-                   <?php the_content(); ?>   
+            <?php the_content(); ?>   
                 </p>
                 <hr>
-            </div>
+            </div> <!-- bi-kompass-content-container -->
             <?php
-                endwhile;
-            ?>          
+        endwhile;
+        ?>          
+    </div> <!-- content-container -->
 
-        </div>
-
-        <div id="bi-app-container">
+    <div class="bi-app-container">
             <h3>Pfadfinder</h3>
-            <ul class="bi-menu">
+            <ul class="items bi-app-container__items">
                 <li><a href="#">Suche</a></li>
                 <li><a href="#">Interaktiver Raumplan</a></li>
                 <li><a href="#">IaK Finder</a></li>
             </ul>
-        </div>
-    
-        
-    </div>
+    </div>    
+</div> <!-- container-flex -->
 
 <?php get_footer(); ?>
