@@ -10,6 +10,6 @@
  *
  */
 
-$day = "Freitag";
-$date_time = "24.4.2020 12:05 Uhr";
-echo "<p>Geändert am: $day um: $date_time</p>";
+$day = "Donnerstag";
+$date_time = "30.04.2020 10:00 Uhr";
+echo "<p style='font-size:small;'>Geändert am: $day um: $date_time</p>";

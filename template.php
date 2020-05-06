@@ -60,15 +60,26 @@
 
     <!-- CONTENT -->
     <div class="container-flex">
-        <div class="container-flex__page-menu">
-            <h2>Hauptartikel</h2>
-            <ul class="items page-menu-items">
-                <li><a href="#">Bericht über Corona</a></li>
-                <li><a href="#">Tragisches Ende einer Ära</a></li>
-                <li><a href="#">Neues aus der IT</a></li>
-                <li><a href="#">Das Meerschwein quieckt lauter als gedacht</a></li>
-                <li><a href="#">Ein neuer Bericht</a></li>
-            </ul>
+        <div class="container-flex__nav-wrapper">
+            <div class="container-flex__page-menu">
+                <h2>Menü</h2>
+                <ul class="items page-menu-items">
+                    <li><a href="#">Unterseite 1</a></li>
+                    <li><a href="#">Unterseite 2</a></li>
+                    <li><a href="#">Eine weitere Unterseite</a></li>
+                </ul>
+            </div>
+
+            <div class="container-flex__articles">
+                <h2>Das Neuste aus dem BI</h2>
+                <ul class="items article-items">
+                    <li><a href="#"><span class="article-title">Das Brett ist schwer</span></a> <a href="#"><span class="article-area">Tischlerei</span></a></li>
+                    <hr>
+                    <li><a href="#"><span class="article-title">Der Server brennt</span></a> <a href="#"><span class="article-area">IT</span></a></li>
+                    <hr>
+                    <li><a href="#"><span class="article-title">Neue Excel-Vorlage</span></a> <a href="#"><span class="article-area">BüMe</span></a></li>
+                </ul>
+            </div>    
         </div>
 
         <div class="container-flex__content">

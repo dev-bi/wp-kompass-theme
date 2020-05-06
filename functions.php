@@ -66,7 +66,7 @@ add_action('after_setup_theme', 'bi_kompass_features');
  * @return string $resultString Titel
  *
  */
-function bik_page_display_contents_header($post) {
+function bik_page_display_contents_header($post, $header_html = 'h3') {
     /* Nur den Titel der Bereichsseite anzeigen, damit man weiß, zu welchem Bereich der Inhalt gehört */
     $string ="";
     if ( is_page() && $post->post_parent ) {
@@ -74,9 +74,48 @@ function bik_page_display_contents_header($post) {
     } else {
         $string = get_the_title();
     }
-    $resultString = "<h3>$string</h3>";
+    $resultString = "<$header_html>$string</$header_html>";
     return $resultString;
 
+}
+
+/**
+ * bik_list_current_posts_string_array
+ *
+ * gibt ein Array aus Strings in HTML-Form zurück.
+ * "Neueste Beiträge" - Navigation
+ *
+ * @return array $list_array Liste aus li und a Tags
+ */
+function bik_current_posts_string_array() {
+    /* CSS Klasse für die Kategorie-Verlinkung */
+    $category_class = "article-area";
+
+    $list_array = [];
+
+    $recent_posts = wp_get_recent_posts([
+        'numberposts' => 4,
+        'post_status' => 'publish'
+    ]);
+
+    foreach ($recent_posts as $post) {
+        $post_title = $post['post_title'];
+        $post_link = get_permalink($post['ID']);
+        $string = "<li><a href='$post_link'>$post_title</a> ";
+        $categories = get_the_category($post['ID']);
+        /*
+         Trotz der foreach-Schleife sollte es eigentlich nur eine(!) Kategorie geben: den Bereich
+        */
+        foreach ($categories as $category) {
+            $cat_title = $category->name;
+            $cat_link = get_category_link($category->term_id);
+            $string .= "<a href='$cat_link'><span class='$category_class'>$cat_title</span></a>";
+        }
+
+        $string .= "</li>\n";
+        $list_array []= $string;
+    }
+    return $list_array;
 }
 
 /**
@@ -117,4 +156,18 @@ function bik_list_child_pages($post) {
     }
    
     return $string;
+}
+
+/**
+ * bik_category_menu_string
+ *
+ * @return string $list Liste der Kategorien ohne ul Eltern-Element
+ */
+function bik_category_menu_string(){
+    $args = [
+        'title_li' => '',
+        'echo' => 0
+    ];
+    $list = wp_list_categories($args);
+    return $list;
 }

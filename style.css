@@ -163,14 +163,21 @@ code {
 }
 
 .container-flex {
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
     display: flex;
     background-color: white;
+    margin-top: 50px;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
+}
+
+.container-flex__nav-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .container-flex__content {
@@ -188,7 +195,26 @@ h1, h2, h3, h4 {
 }
 
 .container-flex__page-menu {
-    flex: 1;
+
+}
+
+.container-flex__articles {
+}
+
+.article-items li {
+
+}
+
+.article-items a:hover {
+    text-decoration: underline;
+}
+
+.article-area {
+    font-size: small;
+}
+
+.article-title {
+    /*font-weight: bold;*/
 }
 
 .items {
@@ -208,11 +234,12 @@ h1, h2, h3, h4 {
 .page-menu-items li {
     display: block;
     margin: 6px 0;
-    font-size: small;
+
 }
 
-.page-menu-items a:hover {
-    text-decoration: underline;
+.page-menu-items li:hover {
+    /*text-decoration: underline;*/
+    background-color: #D4E6F1;
 }
 
 
@@ -225,6 +252,7 @@ h1, h2, h3, h4 {
     margin-left: 50px;
     height: 250px;
     background-color: white;
+    margin-bottom: 25px;
 }
 
 .bi-app-container li {
@@ -255,6 +283,28 @@ h1, h2, h3, h4 {
 #page-header {
     margin-top: 25px;
     text-align: center;
+}
+
+.read-more {
+
+}
+
+.read-more__link {
+    font-weight: bold;
+    color: #1F618D;
+}
+
+.author-sign {
+    text-align: right;
+}
+
+.date {
+    font-size: small;
+    padding-left: 5%;
+}
+
+.bi-kompass-content-container {
+
 }
 
 .footer {

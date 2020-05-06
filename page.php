@@ -3,17 +3,30 @@
 ?>
 
 <div class="container-flex">
-    <div class="container-flex__page-menu">
-            <h2>Inhalt</h2>
-            <!-- Überschrift des Inahlts ist Titel der Hauptseite -->
-            <?php echo bik_page_display_contents_header($post); ?>
 
-            <ul class="items page-menu-items">
-            <!-- Links zu den Unterseiten dieser Seite anzeigen -->
-            <?php echo bik_list_child_pages($post); ?>
-            
-            </ul>
+    <div class="container-flex__nav-wrapper">
+        <div class="container-flex__page-menu">
+                <!-- Überschrift des Inahlts ist Titel der Hauptseite -->
+                <?php echo bik_page_display_contents_header($post, 'h2'); ?>
+
+                <ul class="items page-menu-items">
+                <!-- Links zu den Unterseiten dieser Seite anzeigen -->
+                <?php echo bik_list_child_pages($post); ?>
+                
+                </ul>
         </div>
+        <div class="container-flex__articles">
+                <h2>Das Neuste aus dem BI</h2>
+                <ul class="items article-items">
+                <?php
+                $elements = bik_current_posts_string_array();
+                foreach ($elements as $element) {
+                    echo $element . "<hr>\n";
+                }
+                ?>
+                </ul>
+            </div> 
+    </div>
         <!-- Die Inhalte der angefragten Seite anzeigen -->
         <div class="container-flex__content">
         <?php
