@@ -5,16 +5,42 @@
     
 <!-- CONTENT -->
 <div class="container-flex">
-    <div class="container-flex__page-menu">
-        <h2>Hauptartikel</h2>
-        <ul class="items page-menu-items">
-            <li><a href="#">Bericht über Corona</a></li>
-            <li><a href="#">Tragisches Ende einer Ära</a></li>
-            <li><a href="#">Neues aus der IT</a></li>
-            <li><a href="#">Das Meerschwein quieckt lauter als gedacht</a></li>
-            <li><a href="#">Ein neuer Bericht</a></li>
-        </ul>
-    </div>
+        <div class="container-flex__nav-wrapper">
+            <div class="container-flex__page-menu">
+                <h2>Menü</h2>
+                <ul class="items page-menu-items">
+                    <li><a href="#">Unterseite 1</a></li>
+                    <li><a href="#">Unterseite 2</a></li>
+                    <li><a href="#">Eine weitere Unterseite</a></li>
+                </ul>
+            </div>
+
+            <div class="container-flex__articles">
+                <h2>Das Neuste aus dem BI</h2>
+                <ul class="items article-items">
+                    <?php 
+                     $recent_posts = wp_get_recent_posts([
+                         'numberposts' => 4,
+                         'post_status' => 'publish'
+                     ]);
+
+                     foreach ($recent_posts as $post) :
+                    ?>
+                    <li><a href="<?php echo get_permalink($post['ID']); ?>"><?php echo $post['post_title']; ?></a>
+                    <?php $categories = get_the_category($post['ID']);
+                        foreach ($categories as $category) {
+                            $cat_title = $category->name;
+                            $cat_link = get_category_link($category->term_id);
+                            echo "<a href='$cat_link'><span class='article-area'>$cat_title</a></span>";
+                        }
+                    ?>
+                    </li>
+                    <hr>
+                     <?php endforeach; ?>
+
+                </ul>
+            </div>    
+        </div>
 
     <div class="container-flex__content">
         <div class="bi-kompass-content-container">

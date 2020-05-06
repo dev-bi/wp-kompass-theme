@@ -79,6 +79,13 @@ function bik_page_display_contents_header($post) {
 
 }
 
+function bik_list_newest_posts() {
+    $categoryString = "";
+    $postTitleString = "";
+    $postTitleString = $post->the_title();
+    $resultString = "<li>$postTitleString</li>";
+}
+
 /**
  * bik_list_child_pages
  *
