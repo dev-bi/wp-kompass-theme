@@ -66,7 +66,7 @@ add_action('after_setup_theme', 'bi_kompass_features');
  * @return string $resultString Titel
  *
  */
-function bik_page_display_contents_header($post) {
+function bik_page_display_contents_header($post, $header_html = 'h3') {
     /* Nur den Titel der Bereichsseite anzeigen, damit man weiß, zu welchem Bereich der Inhalt gehört */
     $string ="";
     if ( is_page() && $post->post_parent ) {
@@ -74,7 +74,7 @@ function bik_page_display_contents_header($post) {
     } else {
         $string = get_the_title();
     }
-    $resultString = "<h3>$string</h3>";
+    $resultString = "<$header_html>$string</$header_html>";
     return $resultString;
 
 }
@@ -156,4 +156,18 @@ function bik_list_child_pages($post) {
     }
    
     return $string;
+}
+
+/**
+ * bik_category_menu_string
+ *
+ * @return string $list Liste der Kategorien ohne ul Eltern-Element
+ */
+function bik_category_menu_string(){
+    $args = [
+        'title_li' => '',
+        'echo' => 0
+    ];
+    $list = wp_list_categories($args);
+    return $list;
 }

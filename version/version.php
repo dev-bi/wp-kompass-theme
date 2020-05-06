@@ -12,4 +12,4 @@
 
 $day = "Donnerstag";
 $date_time = "30.04.2020 10:00 Uhr";
-echo "<p>Geändert am: $day um: $date_time</p>";
+echo "<p style='font-size:small;'>Geändert am: $day um: $date_time</p>";

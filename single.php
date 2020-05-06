@@ -6,70 +6,57 @@
     get_header();
 ?>
 
+<!-- CONTENT -->
 <div class="container-flex">
-        <div id="dev-page-links">
-            <h2>Inhalt</h2>
-            <?php
-            /*
-                TODO:
-                Alles alt. Dieser ganze Code muss angepasst werden, siehe page.php
-            */
-            $pageTitle = get_the_title();
-            $parentPageTitle = get_the_title($post->post_parent);
-            
-            if ($pageTitle != $parentPageTitle) :
-                ?>
-                    <h3><?php echo $parentPageTitle; ?></h3>
-                <?php
-            endif;
-            ?>
+        <div class="container-flex__nav-wrapper">
+            <div class="container-flex__page-menu">
+                <h2>Artikel und Beiträge</h2>
+                <ul class="items page-menu-items">
+                    <?php echo bik_category_menu_string(); ?>
+                </ul>
+            </div>
 
-            <h4><?php echo $pageTitle; ?></h4>
-            <ul class="bi-menu bi-articles">
-            <?php
-            echo "single.php";
-            include_once 'wp_src/page_src.php';
-            //bi_get_articles();
-            $args = [
-                'post_type' => 'page',
-                'post_parent' => $post->post_parent->ID,
-            ];
-            $menuQuery = new WP_Query($args);
-            while ($menuQuery->have_posts()) : $menuQuery->the_post();
-                ?>
-                <li><a><?php the_title(); ?></a></li>
+            <div class="container-flex__articles">
+                <h2>Das Neuste aus dem BI</h2>
+                <ul class="items article-items">
                 <?php
-            endwhile;
-                    
-            ?>
-            </ul>
+                $elements = bik_current_posts_string_array();
+                foreach ($elements as $element) {
+                    echo $element . "<hr>\n";
+                }
+                ?>
+                </ul>
+            </div>    
         </div>
 
-        <div class="content-container">
+    <div class="container-flex__content">
         <?php
-        $page_id = get_queried_object_id();
-            $query = new WP_Query(['page_id' => $page_id]);
-            while($query->have_posts()) : $query->the_post();
-                ?>
-
-            <h2><?php the_title(); ?></h2>
-                <p><?php the_content(); ?></p>
-                <?php
-            endwhile;
+        while (have_posts()) :
+            the_post();
             ?>
-        </div>
+            <div class="bi-kompass-content-container">
+                <h2><?php the_title(); ?> <span class="date"><?php the_date(); ?></span></h2>
+                <p><?php the_content(); ?></p>
+                <div class="author-sign">
+                    <h4>Von <?php the_author(); ?></h4>
+                </div>
+            </div> <!-- bi-kompass-content-container -->
+            <?php
+        endwhile;
+        ?>
 
-        <div id="bi-app-container">
+    </div> <!-- content-container -->
+
+    <div class="bi-app-container">
             <h3>Pfadfinder</h3>
-            <ul class="bi-menu">
+            <ul class="items bi-app-container__items">
                 <li><a href="#">Suche</a></li>
                 <li><a href="#">Interaktiver Raumplan</a></li>
                 <li><a href="#">IaK Finder</a></li>
             </ul>
-        </div>
-    
-        
+    </div>    
 </div> <!-- container-flex -->
+
 
 
 

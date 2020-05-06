@@ -7,17 +7,22 @@
 <div class="container-flex">
         <div class="container-flex__nav-wrapper">
             <div class="container-flex__page-menu">
-                <h2>Willkommen <span>~Username~</span></h2>
+                <h2>Menü</h2>
+                <ul class="items page-menu-items">
+                    <li><a href="#">Unterseite 1</a></li>
+                    <li><a href="#">Unterseite 2</a></li>
+                    <li><a href="#">Eine weitere Unterseite</a></li>
+                </ul>
             </div>
 
             <div class="container-flex__articles">
                 <h2>Das Neuste aus dem BI</h2>
                 <ul class="items article-items">
                 <?php
-                $elements = bik_current_posts_string_array();
-                foreach ($elements as $element) {
-                    echo $element . "<hr>\n";
-                }
+                    $elements = bik_current_posts_string_array();
+                    foreach ($elements as $element) {
+                        echo $element . "<hr>\n";
+                    }
                 ?>
                 </ul>
             </div>    
@@ -25,7 +30,7 @@
 
     <div class="container-flex__content">
         <div class="bi-kompass-content-container">
-        <h2>Was suchst du?</h2>
+        <h2>Suchleiste (Test)</h2>
         <?php
         /*
             Suchkomponente
@@ -44,25 +49,25 @@
                 $componentBaseUrl . 'search-component/view/show'
         ));
         ?>
-        </div> <!-- bi-kompass-content-container -->
 
+        <hr>
+
+        </div> <!-- bi-kompass-content-container -->
+        
         <?php
         while (have_posts()) :
             the_post();
             ?>
             <div class="bi-kompass-content-container">
                 <h2><?php the_title(); ?></h2>
-                <?php the_excerpt(); ?>
-                <p><?php //the_content(); ?></p>
-                <div class="read-more">
-                    <a class="read-more__link" href="<?php the_permalink()?>">Lies mich</a>
-                </div>
+                <p>
+            <?php the_content(); ?>   
+                </p>
                 <hr>
             </div> <!-- bi-kompass-content-container -->
             <?php
         endwhile;
-        ?>
-
+        ?>          
     </div> <!-- content-container -->
 
     <div class="bi-app-container">
