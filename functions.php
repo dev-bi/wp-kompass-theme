@@ -79,11 +79,43 @@ function bik_page_display_contents_header($post) {
 
 }
 
-function bik_list_newest_posts() {
-    $categoryString = "";
-    $postTitleString = "";
-    $postTitleString = $post->the_title();
-    $resultString = "<li>$postTitleString</li>";
+/**
+ * bik_list_current_posts_string_array
+ *
+ * gibt ein Array aus Strings in HTML-Form zurück.
+ * "Neueste Beiträge" - Navigation
+ *
+ * @return array $list_array Liste aus li und a Tags
+ */
+function bik_current_posts_string_array() {
+    /* CSS Klasse für die Kategorie-Verlinkung */
+    $category_class = "article-area";
+
+    $list_array = [];
+
+    $recent_posts = wp_get_recent_posts([
+        'numberposts' => 4,
+        'post_status' => 'publish'
+    ]);
+
+    foreach ($recent_posts as $post) {
+        $post_title = $post['post_title'];
+        $post_link = get_permalink($post['ID']);
+        $string = "<li><a href='$post_link'>$post_title</a> ";
+        $categories = get_the_category($post['ID']);
+        /*
+         Trotz der foreach-Schleife sollte es eigentlich nur eine(!) Kategorie geben: den Bereich
+        */
+        foreach ($categories as $category) {
+            $cat_title = $category->name;
+            $cat_link = get_category_link($category->term_id);
+            $string .= "<a href='$cat_link'><span class='$category_class'>$cat_title</span></a>";
+        }
+
+        $string .= "</li>\n";
+        $list_array []= $string;
+    }
+    return $list_array;
 }
 
 /**

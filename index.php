@@ -18,26 +18,12 @@
             <div class="container-flex__articles">
                 <h2>Das Neuste aus dem BI</h2>
                 <ul class="items article-items">
-                    <?php 
-                     $recent_posts = wp_get_recent_posts([
-                         'numberposts' => 4,
-                         'post_status' => 'publish'
-                     ]);
-
-                     foreach ($recent_posts as $post) :
-                    ?>
-                    <li><a href="<?php echo get_permalink($post['ID']); ?>"><?php echo $post['post_title']; ?></a>
-                    <?php $categories = get_the_category($post['ID']);
-                        foreach ($categories as $category) {
-                            $cat_title = $category->name;
-                            $cat_link = get_category_link($category->term_id);
-                            echo "<a href='$cat_link'><span class='article-area'>$cat_title</a></span>";
-                        }
-                    ?>
-                    </li>
-                    <hr>
-                     <?php endforeach; ?>
-
+                <?php
+                    $elements = bik_current_posts_string_array();
+                    foreach ($elements as $element) {
+                        echo $element . "<hr>\n";
+                    }
+                ?>
                 </ul>
             </div>    
         </div>
