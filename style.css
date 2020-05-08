@@ -303,10 +303,6 @@ h1, h2, h3, h4 {
     padding-left: 5%;
 }
 
-.bi-kompass-content-container {
-
-}
-
 .footer {
     display: flex;
     justify-content: space-evenly;
@@ -316,6 +312,10 @@ h1, h2, h3, h4 {
     padding: 25px 0;
 }
 
+.bi-kompass-content-container {
+
+}
+
 .footer__content {
 
 }
@@ -323,6 +323,51 @@ h1, h2, h3, h4 {
 #footer a {
     text-decoration: none;
     color: white;
+}
+
+/**
+ *
+ * Nur Testfelder. Existieren nicht in layout-april.git
+ * Test: WP - REST API
+ */ 
+
+.users-quick-add {
+    display: flex;
+    flex-direction: column;
+}
+
+.users-quick-add textarea,
+.users-quick-add input {
+    padding: 15px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.users-quick-add textarea {
+    height: 200px;
+}
+
+.users-quick-add__form-element:hover {
+    box-shadow: 2px 2px #ccc;
+}
+
+.users-quick-add__form-element {
+    margin-bottom: 25px;
+    width: 300px;
+}
+
+.users-quick-add button {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #3e3eff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+}
+.users-quick-add button:hover{
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {

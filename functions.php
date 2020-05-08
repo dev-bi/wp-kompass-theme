@@ -26,6 +26,8 @@ function bi_kompass_files() {
     wp_enqueue_style('sbar_sytle', $env . 'bi-kompass-component-service/search-component/view/css');
     /* set the main stylesheet */
     wp_enqueue_style('bi_main_styles', get_stylesheet_uri());
+    wp_enqueue_script('my-test-script', get_template_directory_uri() . '/js/main.js', null, 1.1, true);
+    wp_localize_script('my-test-script', $object_name, $l10n);
 }
 
 /**
