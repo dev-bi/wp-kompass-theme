@@ -1,12 +1,21 @@
 console.log("Ein Hallo aus main.js");
 
+const baseUrl = magicalData.siteURL;
+
 let testBtn = document.getElementById('js-test-button');
 let testContainer = document.getElementById('js-test-container');
+
+function handleError (response) {
+    if(!response.ok) {
+        throw Error(`Da ging etwas schief: ${response.status} ${response.statusText}`);
+    }
+    return response.json();
+}
 
 if(testBtn) {
     testBtn.addEventListener('click', () => {
         console.log('button clicked');
-        fetch('http://localhost/bi-kompass/wp_bi-kompass/wp-json/wp/v2/posts?categories=7')
+        fetch(`${baseUrl}/wp-json/wp/v2/posts?categories=7`)
         .then(response => {
             if(!response.ok) {
                 throw Error(`Da ging etwas schief: ${response.status} ${response.statusText}`);
@@ -37,10 +46,13 @@ let addBtn = document.getElementById('quick-add-button');
 
 if(addBtn) {
     addBtn.addEventListener('click', () => {
-        const secretUserCode = 123;
-        const headers = new Headers({
+        if (!magicalData.nonce) return false;
+        const secretUserCode = magicalData.nonce;
+        
+        const authHeaders = new Headers({
             'Content-Type' : 'application/json',
-            'X-WP-Nonce' : secretUserCode
+            'X-WP-Nonce' : secretUserCode,
+            'X-Stefan-Test' : 'Hallo, aus dem Header'
         });
         let data = {
             'title' : document.querySelector('#users-post [name="title"]').value,
@@ -52,13 +64,18 @@ if(addBtn) {
         console.log(data);
         let options = {
             method : 'post',
+            headers: authHeaders,
             body: JSON.stringify(data)
         };
 
-        fetch('http://localhost/bi-kompass/wp_bi-kompass/wp-json/wp/v2/posts', options)
-        .then(response => response.json())
+        fetch(`${baseUrl}/wp-json/wp/v2/posts`, options)
+        .then(response => {
+            handleError(response);
+        })
         .then(data => {
             console.log('Hat geklappt:', data);
+            document.querySelector('#users-post [name="title"]').value = "";
+            document.querySelector('#users-post [name="content"]').value = "";
         })
         .catch(error => {
             console.log(error);

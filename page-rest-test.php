@@ -41,12 +41,14 @@
                     <button id="js-test-button">Klick mich!</button>
                     <div id="js-test-container"></div>
                 </div>
+                <?php if (current_user_can('publish_posts')) : ?>
                 <div id="users-post" class="users-quick-add">
                     <h3>Schreibe einen Beitrag</h3>
                     <input class="users-quick-add__form-element" type="text" name="title" placeholder="Titel des Beitrags">
                     <textarea class="users-quick-add__form-element" type="text" name="content" placeholder="Hier den Inhalt hineinschreiben..."></textarea>
                     <button class="users-quick-add__form-element" id="quick-add-button">Veröffentlichen</button>
                 </div>
+                <?php endif; ?>
                 <hr>
             </div> <!-- bi-kompass-content-container -->
             <?php
